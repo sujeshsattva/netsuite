@@ -22,6 +22,7 @@ public class NetsuiteClient {
         WsClient client = null;
         try {
             client = WsClientFactory.getWsClient(new Properties(), null);
+            new NetsuiteOperations(client).run();
         } catch (MalformedURLException e) {
             printError(INVALID_WS_URL, e.getMessage());
             System.exit(2);
@@ -31,7 +32,9 @@ public class NetsuiteClient {
         } catch (IOException e) {
             printError(WRONG_PROPERTIES_FILE, e.getMessage());
             System.exit(1);
+        }catch(Exception e) {
+        	printError(ERROR,e.getStackTrace());
         }
-        new NetsuiteOperations(client).run();
+        
     }
 }

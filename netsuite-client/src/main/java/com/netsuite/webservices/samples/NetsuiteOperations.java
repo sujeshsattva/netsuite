@@ -125,7 +125,7 @@ public class NetsuiteOperations {
     /**
      * Starts selection of sample operation.
      */
-    public void run() {
+    public void run() throws Exception{
       /*  OptionList<Operation> operationList = new OptionList<>(MAKE_SELECTION, SAMPLE_OPERATIONS);
         operationList.setQuitOption(QUIT_CHARACTER, QUIT);
 
@@ -1130,11 +1130,9 @@ public class NetsuiteOperations {
     }
 
  
-    private void getCurrencyList() {
+    private void getCurrencyList() throws Exception{
        // SAMPLE_OPERATIONS.put(GET_OTHER_LIST_VALUES, () -> {
-    	try {
-    	
-            Map<String, GetAllRecordType> options = new LinkedHashMap<>(4);
+    	    Map<String, GetAllRecordType> options = new LinkedHashMap<>(4);
            /* options.put(BUDGET_CATEGORIES, GetAllRecordType.budgetCategory);
             options.put(CAMPAIGN_CATEGORIES, GetAllRecordType.campaignCategory);
             options.put(STATES, GetAllRecordType.state);*/
@@ -1166,9 +1164,7 @@ public class NetsuiteOperations {
                 allRecords.forEach(PrintUtils::printGetAllRecord);
             }
        // });
-    	}catch(Exception e) {
-    		e.printStackTrace();
-    	}
+    	
     }
 
     
