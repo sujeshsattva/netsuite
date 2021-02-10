@@ -56,7 +56,8 @@ public class Properties extends java.util.Properties {
      */
     public Properties() throws IOException {
         super();
-        load(new FileInputStream(PROPERTIES_FILE));
+        ClassLoader loader = Thread.currentThread().getContextClassLoader();              
+        load(loader.getResourceAsStream(PROPERTIES_FILE));
     }
 
     /**
