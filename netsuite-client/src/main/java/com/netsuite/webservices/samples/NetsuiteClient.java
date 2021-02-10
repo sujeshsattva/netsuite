@@ -27,7 +27,7 @@ public class NetsuiteClient {
             printError(INVALID_WS_URL, e.getMessage());
             System.exit(2);
         } catch (AxisFault e) {
-            printError(ERROR_OCCURRED, e.getFaultDetails());
+        	printError(ERROR_OCCURRED, e.getFaultDetails());
             
             System.exit(3);
         } catch (IOException e) {
