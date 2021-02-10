@@ -34,6 +34,7 @@ public class NetsuiteClient {
 			new NetsuiteOperations(client).run(GetAllRecordType.currency);
 		} catch (AxisFault e) {
             printError(ERROR_OCCURRED, e.getFaultString());
+            printError(ERROR_OCCURRED, e.getFaultDetails());
             System.exit(3);
         } catch (Exception e) {
 			// TODO Auto-generated catch block
