@@ -28,12 +28,15 @@ public class NetsuiteClient {
             System.exit(2);
         } catch (AxisFault e) {
             printError(ERROR_OCCURRED, e.getFaultDetails());
+            
             System.exit(3);
         } catch (IOException e) {
             printError(WRONG_PROPERTIES_FILE, e.getMessage());
             System.exit(1);
         }catch(Exception e) {
         	printError(ERROR,e.getStackTrace());
+        	printError(ERROR_OCCURRED, e.getMessage());
+        	System.exit(0);
         }
         
     }
